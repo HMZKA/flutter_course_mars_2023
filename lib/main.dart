@@ -12,54 +12,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Column"),
-          centerTitle: true,
-        ),
-        // 1 + 1 +1 +1
-        body: Column(
-            //  crossAxisAlignment: CrossAxisAlignment.center,
-            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                // flex: 2,
-                child: Container(
-                  color: Colors.red,
-                  child: Text(
-                    'First Text',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                  child: Text(
-                    'Second Text',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.amber,
-                  child: Text(
-                    'Third Text',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
+          appBar: AppBar(
+            title: Text("Column"),
+            centerTitle: true,
+          ),
+          // 1 + 1 +1 +1
+          body: SizedBox(
+            height: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
                   color: Colors.pink,
                   child: Text(
                     'Fourth Text',
@@ -69,9 +33,29 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ]),
-      ),
+                Container(
+                  color: Colors.amber,
+                  child: Text(
+                    'Fourth Text',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Container(
+                  color: Colors.pink,
+                  child: Text(
+                    'Fourth Text',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )),
     );
   }
 }
