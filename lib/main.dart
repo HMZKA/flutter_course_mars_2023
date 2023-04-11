@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course_1/images_screen.dart';
 import 'package:flutter_course_1/messnger_Screen.dart';
+import 'package:flutter_course_1/places_screen.dart';
 import 'package:flutter_course_1/register_screen.dart';
 
 import 'login_screen.dart';
@@ -13,6 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: PlacesScreen());
   }
 }

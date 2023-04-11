@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'users.dart';
+
 class MessngerScreen extends StatelessWidget {
   const MessngerScreen({super.key});
 
@@ -75,22 +77,23 @@ class MessngerScreen extends StatelessWidget {
               SizedBox(
                 height: 100,
                 child: ListView.builder(
-                  itemBuilder: (context, index) => buildProfile(),
+                  itemBuilder: (context, index) => buildProfile(index),
                   scrollDirection: Axis.horizontal,
-                  itemCount: 20,
+                  itemCount: images.length,
                 ),
               ),
               SizedBox(
                 height: 25,
               ),
               ListView.separated(
-                  itemBuilder: (context, index) => buildChat(),
-                  shrinkWrap: true,
-                  separatorBuilder: (context, index) => SizedBox(
-                        height: 5,
-                      ),
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 30)
+                itemBuilder: (context, index) => buildChat(index),
+                shrinkWrap: true,
+                separatorBuilder: (context, index) => SizedBox(
+                  height: 5,
+                ),
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: images.length,
+              )
             ],
           ),
         ),
@@ -99,7 +102,7 @@ class MessngerScreen extends StatelessWidget {
   }
 }
 
-Widget buildProfile() {
+Widget buildProfile(index) {
   return SizedBox(
     width: 85,
     child: Column(
@@ -109,8 +112,7 @@ Widget buildProfile() {
           children: [
             CircleAvatar(
               radius: 35,
-              backgroundImage: NetworkImage(
-                  'https://th.bing.com/th/id/R.962d893a6217d028d3469e1ff8dd317b?rik=8FC5LIbL0tBVAA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-V_Avr99j_8g%2fTza6wI-croI%2fAAAAAAAAJns%2fY83HzC5ImHE%2fs1600%2fDaisy%2bflower%2bwallpapers.%2b(2).jpg&ehk=jNT7%2fm5ZMQ6N0f9s4%2bn88pjYtuxDqXI0BbOPez5ISHc%3d&risl=&pid=ImgRaw&r=0'),
+              backgroundImage: AssetImage(images[index]),
             ),
             CircleAvatar(
               radius: 8.5,
@@ -125,7 +127,7 @@ Widget buildProfile() {
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: Text(
-            'asdf asdf asdf asdfasdf asdfasdf asdfasdf asdf',
+            names[index],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -139,16 +141,15 @@ Widget buildProfile() {
   );
 }
 
-Widget buildChat() {
+Widget buildChat(index) {
   return Row(
     children: [
       Stack(
         alignment: AlignmentDirectional.bottomEnd,
-        children: const [
+        children: [
           CircleAvatar(
             radius: 35,
-            backgroundImage: NetworkImage(
-                'https://th.bing.com/th/id/R.962d893a6217d028d3469e1ff8dd317b?rik=8FC5LIbL0tBVAA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-V_Avr99j_8g%2fTza6wI-croI%2fAAAAAAAAJns%2fY83HzC5ImHE%2fs1600%2fDaisy%2bflower%2bwallpapers.%2b(2).jpg&ehk=jNT7%2fm5ZMQ6N0f9s4%2bn88pjYtuxDqXI0BbOPez5ISHc%3d&risl=&pid=ImgRaw&r=0'),
+            backgroundImage: AssetImage(images[index]),
           ),
           CircleAvatar(
             backgroundColor: Colors.white,
@@ -162,9 +163,10 @@ Widget buildChat() {
       ),
       Expanded(
         child: Column(
-          children: const [
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
-              'asdfg asfgfga asds asdfg asfgfga asds asdfg asfgfga asds',
+              names[index],
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
