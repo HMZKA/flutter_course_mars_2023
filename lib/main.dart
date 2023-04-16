@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_course_1/animated_align.dart';
-import 'package:flutter_course_1/animated_container.dart';
-import 'package:flutter_course_1/animation_controller.dart';
-import 'package:flutter_course_1/tween_animation.dart';
+
+import 'lgoin_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimationScreen(),
+      home: LoginScreen(),
     );
   }
 }
