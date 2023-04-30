@@ -20,11 +20,12 @@ Widget articleBuilder(model, context) {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "${model.title}",
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-              ),
+              child: Builder(builder: (context) {
+                return Text(
+                  "${model.title}",
+                  style: Theme.of(context).textTheme.titleMedium,
+                );
+              }),
             )
           ],
         ),

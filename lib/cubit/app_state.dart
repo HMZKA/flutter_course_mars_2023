@@ -18,3 +18,5 @@ class SearchLoadingState extends AppState {}
 class SearchSuccessState extends AppState {}
 
 class SearchFailureState extends AppState {}
+
+class ChangeThemeState extends AppState {}

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_course_1/dio_helper.dart';
@@ -25,7 +26,12 @@ class HomeScreen extends StatelessWidget {
                       builder: (context) => SearchScreen(),
                     ));
                   },
-                  icon: Icon(Icons.search))
+                  icon: Icon(Icons.search)),
+              IconButton(
+                  onPressed: () {
+                    cubit.changeTheme();
+                  },
+                  icon: Icon(CupertinoIcons.moon_stars))
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(

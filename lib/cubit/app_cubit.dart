@@ -5,6 +5,7 @@ import 'package:flutter_course_1/jobs_screen.dart';
 import 'package:flutter_course_1/sports_screen.dart';
 import 'package:meta/meta.dart';
 
+import '../app_cache.dart';
 import '../dio_helper.dart';
 import '../news_model.dart';
 
@@ -20,6 +21,13 @@ class AppCubit extends Cubit<AppState> {
     emit(ChangeIndexState());
   }
 
+  bool isDark = AppCache.getData("isDark") ?? false;
+  changeTheme() {
+    isDark = !isDark;
+    AppCache.setBoolean("isDark", isDark);
+    emit(ChangeThemeState());
+  }
+
   NewsModel? newsModel;
   getNews() {
     emit(NewsLoadingState());
@@ -32,6 +40,7 @@ class AppCubit extends Cubit<AppState> {
       print(newsModel?.articles[0].title);
       emit(GetNewsSuccessState());
     }).catchError((error) {
+      print(error.toString());
       emit(GetNewsFailureState());
     });
   }
